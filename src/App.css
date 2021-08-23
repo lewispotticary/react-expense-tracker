@@ -44,8 +44,40 @@ select {
   justify-content: space-evenly;
 }
 
+.filterContainer {
+  display: flex;
+}
+
+.nameFilter {
+  margin-left: 2.9rem;
+  margin-right: 2rem;
+}
+
+.categoryFilter {
+  margin-right: 2rem;
+}
+
+/*Buttons*/
+
+.filterBtn {
+  margin-top: 2.15rem;
+  margin-right: 1rem;
+  width: 5rem;
+  height: 2rem;
+  background-color: #f8f9fa;
+}
+
+.resetBtn {
+  margin-top: 2.15rem;
+  margin-right: 1rem;
+  width: 5rem;
+  height: 2rem;
+  background-color: #f8f9fa;
+}
+
 .expenseBtn {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   background-color: #f8f9fa;
   width: 15rem;
   height: 2rem;
