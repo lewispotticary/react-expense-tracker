@@ -44,6 +44,8 @@ select {
   justify-content: space-evenly;
 }
 
+/*Filter Component Styling*/
+
 .filterContainer {
   display: flex;
 }
@@ -85,4 +87,34 @@ select {
 
 .lineBreak {
   width: 100%;
+}
+
+/* Table Styling */
+
+.tableContainer {
+  display: flex;
+  margin-left: 2.95rem;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  font-size: 5rem;
+}
+
+th {
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+table {
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  width: 100%;
+  color: black;
+  background-color: white;
 }
