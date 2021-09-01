@@ -1,25 +1,55 @@
 import React from 'react';
 
-function Form (){ //Form where user inputs expenses
+function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate}){ //Form where user inputs expenses
+
+    {/*Functions*/}
+
+    {/*Expense Name Prop */}
+    const expenseNameHandler = (e) => {
+        setExpenseName(e.target.value)
+    }
+
+    {/*Amount Prop */}
+
+    const amountHandler = (e) => {
+        setAmount(e.target.value)
+    }
+
+    {/*Category Prop */}
+
+    const categoryHandler = (e) => {
+        setCategory(e.target.value)
+    }
+
+    {/*Date Prop */}
+
+    const dateHandler = (e) => {
+        setDate(e.target.value)
+    }
+    
+
+
+
+
     return(
         <div className="formContainer">
 
             {/*Expense Name Container*/}
             <div className="expenseName">
                 <h3>Expense Name</h3>
-                <input type="text" />
+                <input type="text" value={expenseName} onChange={expenseNameHandler}/>
             </div>
 
             {/*Amount Container*/}
             <div className="amount">
                 <h3>Amount</h3>
-                <input type="text" />
+                <input type="text" value={amount} onChange={amountHandler}/>
             </div>
 
             {/*Category Container*/}
             <div className="category">
                 <h3>Category</h3>
-                <select id="cars" name="cars">
+                <select id="cars" name="cars" value={category} onChange={categoryHandler}>
                     <option value="Bills">Bills</option>
                     <option value="Entertainment">Entertainment</option>
                     <option value="Food">Food</option>
@@ -31,7 +61,7 @@ function Form (){ //Form where user inputs expenses
             {/*Date Container*/}
             <div className="date">
                 <h3>Date</h3>
-                <input type="date" />
+                <input type="date" value={date} onChange={dateHandler} />
             </div>
 
             <div className="lineBreak"></div>
