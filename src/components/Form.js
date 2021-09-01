@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate}){ //Form where user inputs expenses
+function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList}){ //Form where user inputs expenses
 
     {/*Functions*/}
 
@@ -27,8 +27,17 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
         setDate(e.target.value)
     }
     
+    {/*Add expense button function */}
 
-
+    const submitExpenseHandler = (e) => {
+        setExpenseList([
+            ...expenseList, {expenseName: expenseName, amountValue: amount, categoryValue: category, dateValue: date, id: Math.random() * 1000}
+        ])
+        setExpenseName("");
+        setAmount("");
+        setCategory("");
+        setDate("");
+    }
 
 
     return(
@@ -67,7 +76,7 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
             <div className="lineBreak"></div>
 
             <div className="expenseBtnCotainer">
-                <button className="expenseBtn">Add Expense</button>
+                <button className="expenseBtn" onClick={submitExpenseHandler}>Add Expense</button>
             </div>
 
         </div>

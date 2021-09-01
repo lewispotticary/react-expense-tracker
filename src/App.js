@@ -26,13 +26,17 @@ function App() {
   return (
     <div className="App">
       <h1>Expense Tracker</h1>
+
+      {/* Form where user inputs expenses */}
       <Form 
       expenseName={expenseName} setExpenseName={setExpenseName}
       amount={amount} setAmount={setAmount} 
       category={category} setCategory={setCategory}
       date={date} setDate={setDate}
-      /> {/* Form where user inputs expenses */}
+      expenseList={expenseList} setExpenseList={setExpenseList}/>
+
       <Filter />
+      
       <Table />
     </div>
   );
