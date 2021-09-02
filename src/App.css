@@ -91,7 +91,8 @@ select {
 
 /* Table Styling */
 
-.tableContainer {
+.tableContainer,
+.expenseRow {
   display: flex;
   margin-left: 2.95rem;
   margin-top: 2rem;
@@ -105,6 +106,12 @@ th {
   font-size: 5rem;
 }
 
+td {
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
 th {
   font-size: 1.3rem;
   padding-top: 0.2rem;
@@ -112,7 +119,6 @@ th {
 }
 
 table {
-  margin-bottom: 2rem;
   border-collapse: collapse;
   width: 100%;
   color: black;
