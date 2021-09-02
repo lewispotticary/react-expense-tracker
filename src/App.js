@@ -3,6 +3,8 @@ import './App.css';
 import Form from './components/Form';
 import Filter from './components/Filter';
 import Table from './components/Table';
+import ExpenseList from './components/ExpenseList';
+import Expense from './components/Expense';
 
 function App() {
   {/* useState */}
@@ -14,7 +16,7 @@ function App() {
   const [amount, setAmount] = useState("");
 
   {/*Category State */}
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Bills");
 
   {/*Date State */}
   const [date, setDate] = useState("");
@@ -36,8 +38,11 @@ function App() {
       expenseList={expenseList} setExpenseList={setExpenseList}/>
 
       <Filter />
-      
+
       <Table />
+
+      <ExpenseList expenseList={expenseList}/>
+
     </div>
   );
 }
