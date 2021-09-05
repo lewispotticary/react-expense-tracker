@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from './Table';
 
-const ExpenseList = ({expenseList}) => {
+const ExpenseList = ({expenseList, setExpenseList}) => {
     return(
         <table>
         <tr>
@@ -12,9 +12,9 @@ const ExpenseList = ({expenseList}) => {
         </tr> 
             {expenseList.map(expenseObject => (
                         <Table expenseName={expenseObject.expenseName} amountValue={expenseObject.amountValue} categoryValue={expenseObject.categoryValue} 
-                        dateValue={expenseObject.dateValue} id={expenseObject.id}/>
+                        dateValue={expenseObject.dateValue} expenseList={expenseList} setExpenseList={setExpenseList} expenseObject={expenseObject} id={expenseObject.id}/>
                     ))}
-        </table>        
+        </table>       
     );
 }
 
