@@ -38,10 +38,7 @@ function App() {
 
       <Filter />
 
-      
-
-      <ExpenseList expenseList={expenseList}/>
-
+      <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList}/>
 
     </div>
   );
