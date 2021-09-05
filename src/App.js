@@ -4,7 +4,6 @@ import Form from './components/Form';
 import Filter from './components/Filter';
 import Table from './components/Table';
 import ExpenseList from './components/ExpenseList';
-import Expense from './components/Expense';
 
 function App() {
   {/* useState */}
@@ -39,9 +38,10 @@ function App() {
 
       <Filter />
 
-      <Table />
+      
 
       <ExpenseList expenseList={expenseList}/>
+
 
     </div>
   );

@@ -110,6 +110,7 @@ td {
   font-size: 1.3rem;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
+  text-align: center;
 }
 
 th {
@@ -123,4 +124,5 @@ table {
   width: 100%;
   color: black;
   background-color: white;
+  margin-top: 2rem;
 }

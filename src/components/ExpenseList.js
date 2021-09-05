@@ -3,11 +3,18 @@ import Table from './Table';
 
 const ExpenseList = ({expenseList}) => {
     return(
-        <div className="expenseList">
-                    {expenseList.map(expenseObject => (
-                        <Table expenseName={<td>{expenseObject.expenseName}</td>} amountValue={<td>{expenseObject.amountValue}</td>} id={expenseObject.id}/>
+        <table>
+        <tr>
+            <th>Expense Name</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+        </tr> 
+            {expenseList.map(expenseObject => (
+                        <Table expenseName={expenseObject.expenseName} amountValue={expenseObject.amountValue} categoryValue={expenseObject.categoryValue} 
+                        dateValue={expenseObject.dateValue} id={expenseObject.id}/>
                     ))}
-        </div>
+        </table>        
     );
 }
 

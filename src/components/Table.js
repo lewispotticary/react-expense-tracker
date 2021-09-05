@@ -1,21 +1,13 @@
 import React from 'react';
 
-function Table (){
+function Table ({expenseName, amountValue, categoryValue, dateValue}){
     return(
-        <div className="tableContainer">
-
-            <table>
-                <tr>
-                    <th>Expense Name</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                </tr>
-            </table>
-
-            <h3>Total:</h3>
-
-        </div>
+            <tr>
+                <td>{expenseName}</td>
+                <td>{amountValue}</td>
+                <td>{categoryValue}</td>
+                <td>{dateValue}</td>
+            </tr>
     )
 }
 
