@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList}){ //Form where user inputs expenses
+function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList, filteredExpenses}){ //Form where user inputs expenses
 
     {/*Functions*/}
 
