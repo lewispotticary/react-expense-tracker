@@ -1,6 +1,11 @@
 import React from 'react';
 
-function Filter () {
+function Filter ({categoryFilter, setCategoryFilter}) {
+
+    const categoryFilterHandler = (e) => {
+        setCategoryFilter(e.target.value)
+    }
+
     return(
         <div className="filterContainer">
 
@@ -11,7 +16,8 @@ function Filter () {
 
             <div className="categoryFilter">
                 <h3>Category</h3>
-                <select id="cars" name="cars">
+                <select id="cars" name="cars" value={categoryFilter} onChange={categoryFilterHandler}>
+                    <option value="All">All</option>
                     <option value="Bills">Bills</option>
                     <option value="Entertainment">Entertainment</option>
                     <option value="Food">Food</option>
