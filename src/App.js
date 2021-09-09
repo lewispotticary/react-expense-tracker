@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Form from './components/Form';
 import Filter from './components/Filter';
@@ -24,6 +24,43 @@ function App() {
 
   const [expenseList, setExpenseList] = useState([]);
 
+  {/*Category Filter State */}
+
+  const [categoryFilter, setCategoryFilter] = useState("All");
+
+  {/*Category Filter State */}
+
+  const [filteredExpenses, setFilteredExpenses] = useState([]);
+
+  //Use Effect
+  useEffect(() => {
+    filterHandler();
+  },[expenseList,categoryFilter]);
+
+  //Functions
+  const filterHandler = () => {
+    switch(categoryFilter){
+      case "Bills":
+        setFilteredExpenses(expenseList.filter(expense => expense.catergoryValue == 'Bills'));
+        break;
+      /*case "Entertainment":
+        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Entertainment"))
+        break;
+      case "Food":
+        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Food"))
+        break;
+      case "Travel":
+        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Travel"))
+        break;
+      case "Miscellaneous":
+        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Miscellaneous"))
+        break;*/
+      default:
+        setFilteredExpenses(expenseList);
+        break;
+    }
+  }
+
   return (
     <div className="App">
       <h1>Expense Tracker</h1>
@@ -36,9 +73,9 @@ function App() {
       date={date} setDate={setDate}
       expenseList={expenseList} setExpenseList={setExpenseList}/>
 
-      <Filter />
+      <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter}/>
 
-      <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList}/>
+      <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
 
     </div>
   );
