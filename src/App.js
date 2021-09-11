@@ -37,24 +37,26 @@ function App() {
     filterHandler();
   },[expenseList,categoryFilter]);
 
+  
+
   //Functions
   const filterHandler = () => {
     switch(categoryFilter){
       case "Bills":
-        setFilteredExpenses(expenseList.filter(expense => expense.catergoryValue == 'Bills'));
+        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
         break;
-      /*case "Entertainment":
-        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Entertainment"))
+      case "Entertainment":
+        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Entertainment"));
         break;
       case "Food":
-        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Food"))
+        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Food"))
         break;
       case "Travel":
-        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Travel"))
+        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Travel"))
         break;
       case "Miscellaneous":
-        setFilterExpenses(expenseList.filter(expense => expense.catergoryValue === "Miscellaneous"))
-        break;*/
+        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
+        break;
       default:
         setFilteredExpenses(expenseList);
         break;
