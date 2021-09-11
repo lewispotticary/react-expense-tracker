@@ -12,7 +12,7 @@ const ExpenseList = ({expenseList, setExpenseList, filteredExpenses}) => {
         </tr> 
             {filteredExpenses.map(expenseObject => (
                         <Table expenseName={expenseObject.expenseName} amountValue={expenseObject.amountValue} categoryValue={expenseObject.categoryValue} 
-                        dateValue={expenseObject.dateValue} expenseList={expenseList} setExpenseList={setExpenseList} expenseObject={expenseObject} id={expenseObject.id}/>
+                        dateValue={expenseObject.dateValue} expenseList={expenseList} setExpenseList={setExpenseList} expenseObject={expenseObject} key={expenseObject.id}/>
                     ))}
         </table>       
     );
