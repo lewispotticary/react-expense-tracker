@@ -33,8 +33,6 @@ function Filter ({categoryFilter, setCategoryFilter, nameFilter, setNameFilter, 
                     <option value="Miscellaneous">Miscellaneous</option>
                 </select>
             </div>
-            
-            <button className="filterBtn">Filter</button>
 
             <button className="resetBtn">Reset</button>
         </div>
