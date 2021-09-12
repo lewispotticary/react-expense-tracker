@@ -32,15 +32,17 @@ function App() {
 
   const [filteredExpenses, setFilteredExpenses] = useState([]);
 
+  {/*Name Filter State */}
+
+  const [nameFilter, setNameFilter] = useState("");
+
   //Use Effect
   useEffect(() => {
-    filterHandler();
+    categoryFilterHandler();
   },[expenseList,categoryFilter]);
 
-  
-
   //Functions
-  const filterHandler = () => {
+  const categoryFilterHandler = () => {
     switch(categoryFilter){
       case "Bills":
         setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
@@ -75,7 +77,7 @@ function App() {
       date={date} setDate={setDate}
       expenseList={expenseList} setExpenseList={setExpenseList}/>
 
-      <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter}/>
+      <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList}/>
 
       <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
 
