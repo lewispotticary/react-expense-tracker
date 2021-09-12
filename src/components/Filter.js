@@ -1,9 +1,17 @@
 import React from 'react';
 
-function Filter ({categoryFilter, setCategoryFilter}) {
+function Filter ({categoryFilter, setCategoryFilter, nameFilter, setNameFilter, setFilteredExpenses, expenseList}) {
 
     const categoryFilterHandler = (e) => {
         setCategoryFilter(e.target.value)
+    }
+
+    const nameFilterHandler = (e) => {
+        setNameFilter(e.target.value)
+        var name = e.target.value;
+        var nameLength = name.length;
+        console.log(name.substring(0, nameLength));
+        setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === name.substring(0, nameLength)))
     }
 
     return(
@@ -11,7 +19,7 @@ function Filter ({categoryFilter, setCategoryFilter}) {
 
             <div className="nameFilter">
                 <h3>Name</h3>
-                <input type="text" />
+                <input type="text" onChange={nameFilterHandler}/>
             </div>
 
             <div className="categoryFilter">
