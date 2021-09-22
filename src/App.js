@@ -41,6 +41,10 @@ function App() {
     categoryFilterHandler();
   },[expenseList,categoryFilter]);
 
+  useEffect(() => {
+    nameFilterHandler();
+  },[expenseList,nameFilter]);
+
   //Functions
   const categoryFilterHandler = () => {
     switch(categoryFilter){
@@ -63,6 +67,11 @@ function App() {
         setFilteredExpenses(expenseList);
         break;
     }
+  }
+
+  const nameFilterHandler = () => {
+    var nameLength = nameFilter.length;
+    setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
   }
 
   return (
