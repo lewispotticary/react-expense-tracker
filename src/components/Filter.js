@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 function Filter ({categoryFilter, setCategoryFilter, nameFilter, setNameFilter, setFilteredExpenses, expenseList}) {
+
+    /*put use effect for name in app.js*/
 
     const categoryFilterHandler = (e) => {
         setCategoryFilter(e.target.value)
     }
 
-    const nameFilterHandler = (e) => {
-        setNameFilter(e.target.value)
-        var name = e.target.value;
-        var nameLength = name.length;
-        console.log(name.substring(0, nameLength));
-        setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === name.substring(0, nameLength)))
+    const nameFilterSet = (e) => {
+        setNameFilter(e.target.value);
+    }
+
+    const resetHandler = () => {
+        setCategoryFilter("");
+        setNameFilter("");
     }
 
     return(
@@ -19,7 +22,7 @@ function Filter ({categoryFilter, setCategoryFilter, nameFilter, setNameFilter, 
 
             <div className="nameFilter">
                 <h3>Name</h3>
-                <input type="text" onChange={nameFilterHandler}/>
+                <input type="text" onChange={nameFilterSet}/>
             </div>
 
             <div className="categoryFilter">
@@ -34,7 +37,7 @@ function Filter ({categoryFilter, setCategoryFilter, nameFilter, setNameFilter, 
                 </select>
             </div>
 
-            <button className="resetBtn">Reset</button>
+            <button className="resetBtn" onClick={resetHandler}>Reset</button>
         </div>
     )
 }
