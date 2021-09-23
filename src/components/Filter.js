@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Filter ({categoryFilter, setCategoryFilter, setNameFilter}) {
+function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort}) {
 
     //Functions
 
@@ -23,6 +23,10 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter}) {
             setNameFilter("");
         }
 
+        const dateSortHandler = (e) => {
+            setDateSort(e.target.value);
+        }
+
     //Main - Returns HTML
 
         return(
@@ -42,6 +46,14 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter}) {
                         <option value="Food">Food</option>
                         <option value="Travel">Travel</option>
                         <option value="Miscellaneous">Miscellaneous</option>
+                    </select>
+                </div>
+
+                <div className="dateSort">
+                    <h3>Date</h3>
+                    <select id="cars" name="cars" value={dateSort} onChange={dateSortHandler}>
+                        <option value="New">Date (Newest)</option>
+                        <option value="Old">Date (Oldest)</option>
                     </select>
                 </div>
 
