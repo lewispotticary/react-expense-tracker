@@ -39,6 +39,10 @@ function App() {
 
     const [nameFilter, setNameFilter] = useState("");
 
+    //Date Sort State
+
+    const [dateSort, setDateSort] = useState("New");
+
   //Use Effect
 
     //Category filter useEffect
@@ -104,7 +108,7 @@ function App() {
 
         {/* Filter component that allows user to filter out list */}
 
-        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList}/>
+        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList} setDateSort={setDateSort} dateSort={dateSort}/>
 
         {/* Expense list component that outputs the inputted data into a table */}
 
