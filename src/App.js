@@ -2,96 +2,116 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Form from './components/Form';
 import Filter from './components/Filter';
-import Table from './components/Table';
 import ExpenseList from './components/ExpenseList';
 
 function App() {
-  {/* useState */}
+  //useState
 
-   {/*Expense Name State */}
-  const [expenseName, setExpenseName] = useState("");
+    //Expense Name State
 
-  {/*Amount State */}
-  const [amount, setAmount] = useState("");
+    const [expenseName, setExpenseName] = useState("");
 
-  {/*Category State */}
-  const [category, setCategory] = useState("Bills");
+    //Amount State
+    
+    const [amount, setAmount] = useState("");
 
-  {/*Date State */}
-  const [date, setDate] = useState("");
+    //Category State
 
-  {/*Expense List State */}
+    const [category, setCategory] = useState("Bills");
 
-  const [expenseList, setExpenseList] = useState([]);
+    //Date State
 
-  {/*Category Filter State */}
+    const [date, setDate] = useState("");
 
-  const [categoryFilter, setCategoryFilter] = useState("All");
+    //Expense List State
 
-  {/*Category Filter State */}
+    const [expenseList, setExpenseList] = useState([]);
 
-  const [filteredExpenses, setFilteredExpenses] = useState([]);
+    //Category Filter State
 
-  {/*Name Filter State */}
+    const [categoryFilter, setCategoryFilter] = useState("All");
 
-  const [nameFilter, setNameFilter] = useState("");
+    //Category Filter State
+
+    const [filteredExpenses, setFilteredExpenses] = useState([]);
+
+    //Name Filter State
+
+    const [nameFilter, setNameFilter] = useState("");
 
   //Use Effect
-  useEffect(() => {
-    categoryFilterHandler();
-  },[expenseList,categoryFilter]);
 
-  useEffect(() => {
-    nameFilterHandler();
-  },[expenseList,nameFilter]);
+    //Category filter useEffect
+
+    useEffect(() => {
+      categoryFilterHandler();
+    },[categoryFilter]);
+
+    //Name Filter useEffect
+    
+    useEffect(() => {
+      nameFilterHandler();
+    },[expenseList,nameFilter]);
 
   //Functions
-  const categoryFilterHandler = () => {
-    switch(categoryFilter){
-      case "Bills":
-        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
-        break;
-      case "Entertainment":
-        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Entertainment"));
-        break;
-      case "Food":
-        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Food"))
-        break;
-      case "Travel":
-        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Travel"))
-        break;
-      case "Miscellaneous":
-        setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
-        break;
-      default:
-        setFilteredExpenses(expenseList);
-        break;
+
+    //Category Filter function
+
+    const categoryFilterHandler = () => {
+      switch(categoryFilter){
+        case "Bills":
+          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
+          break;
+        case "Entertainment":
+          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Entertainment"));
+          break;
+        case "Food":
+          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Food"))
+          break;
+        case "Travel":
+          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Travel"))
+          break;
+        case "Miscellaneous":
+          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
+          break;
+        default:
+          setFilteredExpenses(expenseList);
+          break;
+      }
     }
-  }
 
-  const nameFilterHandler = () => {
-    var nameLength = nameFilter.length;
-    setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
-  }
+    //Name filter function
 
-  return (
-    <div className="App">
-      <h1>Expense Tracker</h1>
+    const nameFilterHandler = () => {
+      var nameLength = nameFilter.length;
+      setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
+    }
 
-      {/* Form where user inputs expenses */}
-      <Form 
-      expenseName={expenseName} setExpenseName={setExpenseName}
-      amount={amount} setAmount={setAmount} 
-      category={category} setCategory={setCategory}
-      date={date} setDate={setDate}
-      expenseList={expenseList} setExpenseList={setExpenseList}/>
+  //Main 
 
-      <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList}/>
+    return (
+      <div className="App">
+        <h1>Expense Tracker</h1>
 
-      <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
+        {/* Form where user inputs expenses */}
 
-    </div>
-  );
+        <Form 
+        expenseName={expenseName} setExpenseName={setExpenseName}
+        amount={amount} setAmount={setAmount} 
+        category={category} setCategory={setCategory}
+        date={date} setDate={setDate}
+        expenseList={expenseList} setExpenseList={setExpenseList}/>
+
+        {/* Filter component that allows user to filter out list */}
+
+        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList}/>
+
+        {/* Expense list component that outputs the inputted data into a table */}
+
+        <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
+
+      </div>
+    );
 }
 
 export default App;
