@@ -1,6 +1,8 @@
 import React from 'react';
 import Table from './Table';
 
+//Expense list component. Includes HTML Table and maps through expenseList state and passes it to table component where it is rendered. 
+
 const ExpenseList = ({expenseList, setExpenseList, filteredExpenses}) => {
     return(
         <table>
