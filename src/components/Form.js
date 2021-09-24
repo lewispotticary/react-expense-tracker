@@ -34,7 +34,12 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
         const submitExpenseHandler = (e) => {
             e.preventDefault();
             setExpenseList([
-                ...expenseList, {expenseName: expenseName, amountValue: amount, categoryValue: category, dateValue: date, id: Math.random() * 1000}
+                ...expenseList, {
+                    expenseName: expenseName, 
+                    amountValue: amount, 
+                    categoryValue: category, 
+                    dateValue: date, 
+                    id: Math.random() * 1000}
             ])
             setExpenseName("");
             setAmount("");
