@@ -57,6 +57,12 @@ function App() {
       nameFilterHandler();
     },[expenseList,nameFilter]);
 
+    //Date Filter useEffect
+    
+    useEffect(() => {
+      dateSortHandler();
+    },[dateSort]);
+
   //Functions
 
     //Category Filter function
@@ -77,6 +83,26 @@ function App() {
           break;
         case "Miscellaneous":
           setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
+          break;
+        default:
+          setFilteredExpenses(expenseList);
+          break;
+      }
+    }
+
+    //Date sort function
+
+    const dateSortHandler = () => {
+      switch(dateSort){
+        case "New":
+          setFilteredExpenses(expenseList.sort(function(a,b){
+            return new Date(b.dateValue) - new Date(a.dateValue)
+          }));
+          break;
+        case "Old":
+          setFilteredExpenses(expenseList.sort(function(a,b){
+            return new Date(a.dateValue) - new Date(b.dateValue)
+          }))
           break;
         default:
           setFilteredExpenses(expenseList);
