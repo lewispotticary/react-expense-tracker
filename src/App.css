@@ -65,15 +65,9 @@ select {
 
 /*Buttons*/
 
+.resetBtn,
+.clearBtn,
 .filterBtn {
-  margin-top: 2.15rem;
-  margin-right: 1rem;
-  width: 5rem;
-  height: 2rem;
-  background-color: #f8f9fa;
-}
-
-.resetBtn {
   margin-top: 2.15rem;
   margin-right: 1rem;
   width: 5rem;
