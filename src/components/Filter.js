@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort}) {
+function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList}) {
 
     //Functions
 
@@ -23,8 +23,16 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
             setNameFilter("");
         }
 
+        //Set date sort state to event value
+
         const dateSortHandler = (e) => {
             setDateSort(e.target.value);
+        }
+
+        //Clear expense list when clear button clicked
+
+        const clearHandler = () => {
+            setExpenseList([]);
         }
 
     //Main - Returns HTML
@@ -58,6 +66,8 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
                 </div>
 
                 <button className="resetBtn" onClick={resetHandler}>Reset</button>
+
+                <button className="clearBtn" onClick={clearHandler}>Clear</button>
             </div>
         )
 }
