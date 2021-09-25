@@ -134,7 +134,7 @@ function App() {
 
         {/* Filter component that allows user to filter out list */}
 
-        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList} setDateSort={setDateSort} dateSort={dateSort}/>
+        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList} setDateSort={setDateSort} dateSort={dateSort} setExpenseList={setExpenseList}/>
 
         {/* Expense list component that outputs the inputted data into a table */}
 
