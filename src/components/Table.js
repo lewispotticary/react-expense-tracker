@@ -15,13 +15,15 @@ function Table ({expenseName, amountValue, categoryValue, dateValue, setExpenseL
         //Mapped data from expense list is passed into new row and columns. 
         
         return(
-                <tr>
+            <tbody>
+                <tr class="table-secondary fs-6">
                     <td>{expenseName}</td>
                     <td>{amountValue}</td>
                     <td>{categoryValue}</td>
                     <td>{dateValue}</td>
                     <td><button onClick={deleteHandler} className="trash-btn"><i className="fa fa-trash fa-lg"></i></button></td>
                 </tr>
+            </tbody>
         )
 }
 

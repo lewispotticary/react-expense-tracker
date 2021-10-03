@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
+import Table from 'react-bootstrap/Table'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList}){ //Form where user inputs expenses
 
@@ -50,46 +53,59 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
     //Main   
 
         return(
-            <div className="formContainer">
+            <div class="container">
 
-                {/*Expense Name Container*/}
+                <div class="d-flex flex-row justify-content-center mb-3 mt-3">
+                    <h1>Expense Tracker</h1>
+                </div> 
 
-                <div className="expenseName">
-                    <h3>Expense Name</h3>
-                    <input type="text" value={expenseName} onChange={expenseNameHandler}/>
-                </div>
+                <div class="d-flex flex-row justify-content-start mb-4">
+                    
+                    <div class="row">
 
-                {/*Amount Container*/}
+                        {/*Expense Name Container*/}
 
-                <div className="amount">
-                    <h3>Amount</h3>
-                    <input type="text" value={amount} onChange={amountHandler}/>
-                </div>
+                        <div class="col">
+                            <h4>Expense Name</h4>
+                            <input class="form-control" type="text" value={expenseName} onChange={expenseNameHandler}/>
+                        </div>
 
-                {/*Category Container*/}
+                        {/*Amount Container*/}
 
-                <div className="category">
-                    <h3>Category</h3>
-                    <select id="cars" name="cars" value={category} onChange={categoryHandler}>
-                        <option value="Bills">Bills</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Food">Food</option>
-                        <option value="Travel">Travel</option>
-                        <option value="Miscellaneous">Miscellaneous</option>
-                    </select>
-                </div>
+                        <div class="col">
+                            <h4>Amount</h4>
+                            <input class="form-control" type="text" value={amount} onChange={amountHandler}/>
+                        </div>
 
-                {/*Date Container*/}
-                
-                <div className="date">
-                    <h3>Date</h3>
-                    <input type="date" value={date} onChange={dateHandler} />
-                </div>
+                        {/*Category Container*/}
 
-                <div className="lineBreak"></div>
+                        <div class="col">
+                            <h4>Category</h4>
+                            <select class="form-select" id="cars" name="cars" value={category} onChange={categoryHandler}>
+                                <option value="Bills">Bills</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Miscellaneous">Miscellaneous</option>
+                            </select>
+                        </div>
 
-                <div className="expenseBtnCotainer">
-                    <button className="expenseBtn" onClick={submitExpenseHandler}>Add Expense</button>
+                        {/*Date Container*/}
+                        
+                        <div class="col">
+                            <h4>Date</h4>
+                            <input class="form-control" type="date" value={date} onChange={dateHandler} />
+                        </div>
+
+                        <div class="col">
+                            <h4>&nbsp;</h4>
+                            <Button onClick={submitExpenseHandler}>Add Expense</Button>
+                        </div>
+
+                    </div>
+
+                    <hr></hr>
+
                 </div>
 
             </div>
