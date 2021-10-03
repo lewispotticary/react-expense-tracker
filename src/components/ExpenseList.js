@@ -11,7 +11,7 @@ const ExpenseList = ({expenseList, setExpenseList, filteredExpenses}) => {
         <TableBootstrap class="table-dark table-striped">
             <thead>
                 <tr class="table-dark fs-5">
-                    <th scope="col">Expense Name</th>
+                    <th scope="col">Expense</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Category</th>
                     <th scope="col">Date</th>

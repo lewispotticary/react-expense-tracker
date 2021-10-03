@@ -66,7 +66,7 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
                         {/*Expense Name Container*/}
 
                         <div class="col">
-                            <h4>Expense Name</h4>
+                            <h4>Expense</h4>
                             <input class="form-control" type="text" value={expenseName} onChange={expenseNameHandler}/>
                         </div>
 
