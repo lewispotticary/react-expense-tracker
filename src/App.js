@@ -3,6 +3,7 @@ import './App.css';
 import Form from './components/Form';
 import Filter from './components/Filter';
 import ExpenseList from './components/ExpenseList';
+import Total from './components/Total'
 
 function App() {
   //useState
@@ -43,6 +44,10 @@ function App() {
 
     const [dateSort, setDateSort] = useState("New");
 
+    //Total State
+
+    const [total, setTotal] = useState("");
+
   //Use Effect
 
     //Category filter useEffect
@@ -51,10 +56,11 @@ function App() {
       categoryFilterHandler();
     },[categoryFilter]);
 
-    //Name Filter useEffect
+    //Name Filter and total useEffect
     
     useEffect(() => {
       nameFilterHandler();
+      totalHandler();
     },[expenseList,nameFilter]);
 
     //Date Filter useEffect
@@ -117,6 +123,16 @@ function App() {
       setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
     }
 
+    //Calculate total function. Maps through each amountValue in expenseList then adds all values together
+
+    const totalHandler = () => {
+      var test = expenseList.map(x => x.amountValue);
+      var sum = test.reduce(function(a, b){
+        return Number(a) + Number(b);
+      }, 0);
+      setTotal(sum);
+    }
+
   //Main 
 
     return (
@@ -129,7 +145,10 @@ function App() {
         amount={amount} setAmount={setAmount} 
         category={category} setCategory={setCategory}
         date={date} setDate={setDate}
-        expenseList={expenseList} setExpenseList={setExpenseList}/>
+        expenseList={expenseList} setExpenseList={setExpenseList}
+        setTotal={setTotal}
+        total={total}
+        />
 
         {/* Filter component that allows user to filter out list */}
 
@@ -138,6 +157,10 @@ function App() {
         {/* Expense list component that outputs the inputted data into a table */}
 
         <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
+
+        {/* Total component renders total of all expenses */}
+
+        <Total total={total}/>
 
       </div>
     );

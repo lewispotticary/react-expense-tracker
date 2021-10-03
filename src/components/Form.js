@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import Button from 'react-bootstrap/Button'
-import Table from 'react-bootstrap/Table'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList}){ //Form where user inputs expenses
+function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList, setTotal, total}){ //Form where user inputs expenses
 
     //Functions
 
@@ -29,8 +28,7 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
 
         const dateHandler = (e) => {
             setDate(e.target.value)
-        }
-        
+        }     
 
         //Add expense button function. Create a class with form data and store into set expense list state. 
 
