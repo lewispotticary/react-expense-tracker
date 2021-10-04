@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './App.css';
 import Form from './components/Form';
 import Filter from './components/Filter';
 import ExpenseList from './components/ExpenseList';
 import Total from './components/Total'
+import Chart from './components/Chart'
 
 function App() {
   //useState
@@ -48,6 +49,26 @@ function App() {
 
     const [total, setTotal] = useState("");
 
+    //Bills total state
+
+    const [billTotal, setBillTotal] = useState("");
+
+    //Entertainment value state
+
+    const [entertainmentTotal, setEntertainmentTotal] = useState("");
+
+    //Food total state
+
+    const [foodTotal, setFoodTotal] = useState("");
+
+    //Travel total state
+
+    const [travelTotal, setTravelTotal] = useState("");
+
+    //Miscellaneous total state
+
+    const [miscellaneouslTotal, setMiscellaneousTotal] = useState("");
+
   //Use Effect
 
     //Category filter useEffect
@@ -60,7 +81,6 @@ function App() {
     
     useEffect(() => {
       nameFilterHandler();
-      totalHandler();
     },[expenseList,nameFilter]);
 
     //Date Filter useEffect
@@ -125,13 +145,6 @@ function App() {
 
     //Calculate total function. Maps through each amountValue in expenseList then adds all values together
 
-    const totalHandler = () => {
-      var test = expenseList.map(x => x.amountValue);
-      var sum = test.reduce(function(a, b){
-        return Number(a) + Number(b);
-      }, 0);
-      setTotal(sum);
-    }
 
   //Main 
 
@@ -152,15 +165,46 @@ function App() {
 
         {/* Filter component that allows user to filter out list */}
 
-        <Filter categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} nameFilter={nameFilter} setNameFilter={setNameFilter} setFilteredExpenses={setFilteredExpenses} expenseList={expenseList} setDateSort={setDateSort} dateSort={dateSort} setExpenseList={setExpenseList}/>
+        <Filter 
+        categoryFilter={categoryFilter} 
+        setCategoryFilter={setCategoryFilter} 
+        nameFilter={nameFilter} 
+        setNameFilter={setNameFilter} 
+        setFilteredExpenses={setFilteredExpenses} 
+        expenseList={expenseList} 
+        setDateSort={setDateSort} 
+        dateSort={dateSort} 
+        setExpenseList={setExpenseList}
+        />
 
         {/* Expense list component that outputs the inputted data into a table */}
 
-        <ExpenseList expenseList={expenseList} setExpenseList={setExpenseList} filteredExpenses={filteredExpenses}/>
+        <ExpenseList 
+        expenseList={expenseList} 
+        setExpenseList={setExpenseList} 
+        filteredExpenses={filteredExpenses}
+        />
 
         {/* Total component renders total of all expenses */}
 
-        <Total total={total}/>
+        <Total 
+        total={total} 
+        expenseList={expenseList} 
+        setTotal={setTotal} 
+        setBillTotal={setBillTotal} 
+        setEntertainmentTotal={setEntertainmentTotal} 
+        setFoodTotal={setFoodTotal}
+        setTravelTotal={setTravelTotal}
+        setMiscellaneousTotal={setMiscellaneousTotal}
+        />
+
+        <Chart 
+        billTotal={billTotal} 
+        entertainmentTotal={entertainmentTotal} 
+        foodTotal={foodTotal}
+        travelTotal={travelTotal}
+        miscellaneouslTotal={miscellaneouslTotal}
+        />
 
       </div>
     );
