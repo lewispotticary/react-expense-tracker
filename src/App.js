@@ -1,5 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
+
+//CSS Import 
+
 import './App.css';
+
+//Import of created components
+
 import Form from './components/Form';
 import Filter from './components/Filter';
 import ExpenseList from './components/ExpenseList';
@@ -7,6 +13,7 @@ import Total from './components/Total'
 import Chart from './components/Chart'
 
 function App() {
+
   //useState
 
     //Expense Name State
@@ -74,10 +81,6 @@ function App() {
     //Category filter useEffect
 
     useEffect(() => {
-      dateSortHandler();
-    },[dateSort]);
-
-    useEffect(() => {
       categoryFilterHandler();
     },[categoryFilter]);
 
@@ -89,65 +92,63 @@ function App() {
 
     //Date Filter useEffect
 
+    useEffect(() => {
+      dateSortHandler();
+    },[dateSort]);
+
   //Functions
 
-  //Date sort function
+    //Date sort function - sorts date depending on user input on drop down list
 
-//Miscellaneous total state
-
-
-  const dateSortHandler = () => {
-    switch(dateSort){
-      case "New":
-        var filterByNew = expenseList.sort(function(a,b){return new Date(b.dateValue) - new Date(a.dateValue)});
-        setFilteredExpenses([...filterByNew]);
-        break;
-      case "Old":
-        var filterByOld = expenseList.sort(function(a,b){return new Date(a.dateValue) - new Date(b.dateValue)})
-        setFilteredExpenses([...filterByOld]);
-        break;
-      default:
-        setFilteredExpenses(expenseList);
-        break;
-    }
-
-  }
-
-    //Category Filter function
-
-    const categoryFilterHandler = () => {
-      switch(categoryFilter){
-        case "Bills":
-          console.log("bills");
-          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
+    const dateSortHandler = () => {
+      switch(dateSort){
+        case "New":
+          var filterByNew = expenseList.sort(function(a,b){return new Date(b.dateValue) - new Date(a.dateValue)});
+          setFilteredExpenses([...filterByNew]);
           break;
-        case "Entertainment":
-          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Entertainment"));
-          break;
-        case "Food":
-          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Food"))
-          break;
-        case "Travel":
-          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Travel"))
-          break;
-        case "Miscellaneous":
-          setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
+        case "Old":
+          var filterByOld = expenseList.sort(function(a,b){return new Date(a.dateValue) - new Date(b.dateValue)})
+          setFilteredExpenses([...filterByOld]);
           break;
         default:
           setFilteredExpenses(expenseList);
           break;
       }
+
     }
 
-    //Name filter function
+      //Category Filter function - filters the expense list by category depending on user input on drop down list
 
-    const nameFilterHandler = () => {
-      var nameLength = nameFilter.length;
-      setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
-    }
+      const categoryFilterHandler = () => {
+        switch(categoryFilter){
+          case "Bills":
+            console.log("bills");
+            setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
+            break;
+          case "Entertainment":
+            setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Entertainment"));
+            break;
+          case "Food":
+            setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Food"))
+            break;
+          case "Travel":
+            setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Travel"))
+            break;
+          case "Miscellaneous":
+            setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
+            break;
+          default:
+            setFilteredExpenses(expenseList);
+            break;
+        }
+      }
 
-    //Calculate total function. Maps through each amountValue in expenseList then adds all values together
+      //Name filter function - filters expense list when the user inputs name of expense
 
+      const nameFilterHandler = () => {
+        var nameLength = nameFilter.length;
+        setFilteredExpenses(expenseList.filter(expense => expense.expenseName.substring(0, nameLength) === nameFilter.substring(0, nameLength)));
+      }
 
   //Main 
 
@@ -157,24 +158,24 @@ function App() {
         {/* Form where user inputs expenses */}
 
         <Form 
-        expenseName={expenseName} setExpenseName={setExpenseName}
-        amount={amount} setAmount={setAmount} 
-        category={category} setCategory={setCategory}
-        date={date} setDate={setDate}
-        expenseList={expenseList} setExpenseList={setExpenseList}
-        setTotal={setTotal}
-        total={total}
+        expenseName={expenseName}
+        setExpenseName={setExpenseName}
+        amount={amount}
+        setAmount={setAmount} 
+        category={category}
+        setCategory={setCategory}
+        date={date}
+        setDate={setDate}
+        expenseList={expenseList}
+        setExpenseList={setExpenseList}
         />
 
         {/* Filter component that allows user to filter out list */}
 
         <Filter 
         categoryFilter={categoryFilter} 
-        setCategoryFilter={setCategoryFilter} 
-        nameFilter={nameFilter} 
+        setCategoryFilter={setCategoryFilter}
         setNameFilter={setNameFilter} 
-        setFilteredExpenses={setFilteredExpenses} 
-        expenseList={expenseList} 
         setDateSort={setDateSort} 
         dateSort={dateSort} 
         setExpenseList={setExpenseList}
@@ -200,6 +201,8 @@ function App() {
         setTravelTotal={setTravelTotal}
         setMiscellaneousTotal={setMiscellaneousTotal}
         />
+
+        {/* Chart component renders pie chart using data stored in state */}
 
         <Chart 
         billTotal={billTotal} 
