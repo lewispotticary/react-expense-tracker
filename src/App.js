@@ -178,6 +178,7 @@ function App() {
         setDateSort={setDateSort} 
         dateSort={dateSort} 
         setExpenseList={setExpenseList}
+        nameFilter={nameFilter}
         />
 
         {/* Expense list component that outputs the inputted data into a table */}
