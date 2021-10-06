@@ -43,7 +43,7 @@ function App() {
 
     //Date Sort State
 
-    const [dateSort, setDateSort] = useState("New");
+    const [dateSort, setDateSort] = useState("None");
 
     //Total State
 
@@ -74,6 +74,10 @@ function App() {
     //Category filter useEffect
 
     useEffect(() => {
+      dateSortHandler();
+    },[dateSort]);
+
+    useEffect(() => {
       categoryFilterHandler();
     },[categoryFilter]);
 
@@ -84,18 +88,37 @@ function App() {
     },[expenseList,nameFilter]);
 
     //Date Filter useEffect
-    
-    useEffect(() => {
-      dateSortHandler();
-    },[dateSort]);
 
   //Functions
+
+  //Date sort function
+
+//Miscellaneous total state
+
+
+  const dateSortHandler = () => {
+    switch(dateSort){
+      case "New":
+        var filterByNew = expenseList.sort(function(a,b){return new Date(b.dateValue) - new Date(a.dateValue)});
+        setFilteredExpenses([...filterByNew]);
+        break;
+      case "Old":
+        var filterByOld = expenseList.sort(function(a,b){return new Date(a.dateValue) - new Date(b.dateValue)})
+        setFilteredExpenses([...filterByOld]);
+        break;
+      default:
+        setFilteredExpenses(expenseList);
+        break;
+    }
+
+  }
 
     //Category Filter function
 
     const categoryFilterHandler = () => {
       switch(categoryFilter){
         case "Bills":
+          console.log("bills");
           setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
           break;
         case "Entertainment":
@@ -109,26 +132,6 @@ function App() {
           break;
         case "Miscellaneous":
           setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Miscellaneous"))
-          break;
-        default:
-          setFilteredExpenses(expenseList);
-          break;
-      }
-    }
-
-    //Date sort function
-
-    const dateSortHandler = () => {
-      switch(dateSort){
-        case "New":
-          setFilteredExpenses(expenseList.sort(function(a,b){
-            return new Date(b.dateValue) - new Date(a.dateValue)
-          }));
-          break;
-        case "Old":
-          setFilteredExpenses(expenseList.sort(function(a,b){
-            return new Date(a.dateValue) - new Date(b.dateValue)
-          }))
           break;
         default:
           setFilteredExpenses(expenseList);
