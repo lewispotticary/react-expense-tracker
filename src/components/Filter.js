@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList}) {
+function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList, expenseList, setFilteredExpenses}) {
 
     //Functions
 
@@ -23,6 +23,7 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
         const resetHandler = () => {
             setCategoryFilter("");
             setNameFilter("");
+            setDateSort("");
         }
 
         //Set date sort state to event value
@@ -35,7 +36,7 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
 
         const clearHandler = () => {
             setExpenseList([]);
-        }
+        }       
 
     //Main - Returns HTML
 
@@ -68,8 +69,9 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
                         </div>
 
                         <div class="col">
-                            <h5>Date</h5>
+                            <h5>Date Sort</h5>
                             <select class="form-select" id="cars" name="cars" value={dateSort} onChange={dateSortHandler}>
+                                <option value="None">None</option>
                                 <option value="New">Date (Newest)</option>
                                 <option value="Old">Date (Oldest)</option>
                             </select>
