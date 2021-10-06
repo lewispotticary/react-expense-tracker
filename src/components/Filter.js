@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Filter function renders the filter section of the expense tracker, sets user inputs into state. 
 
-function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList}) {
+function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList, nameFilter}) {
 
     //Functions
 
@@ -57,7 +57,7 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
 
                         <div class="col">
                             <h5>Name</h5>
-                            <input class="form-control" type="text" onChange={nameFilterSet}/>
+                            <input value={nameFilter} class="form-control" type="text" onChange={nameFilterSet}/>
                         </div>
 
                         {/*Category to filter Container*/}
