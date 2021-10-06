@@ -34,8 +34,6 @@ const Chart = ({billTotal, entertainmentTotal, foodTotal, travelTotal, miscellan
                     maintainAspectRatio: false,
                     responsive: true,
                 }}
-               
-                
             />
         </div>
     )
