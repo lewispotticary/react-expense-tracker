@@ -1,8 +1,13 @@
 import React from "react";
+
+//Import of bootrap 
+
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList, setTotal, total}){ //Form where user inputs expenses
+//The form function renders out the form where the user enter details of the expense
+
+function Form ({expenseName, setExpenseName, amount, setAmount, category, setCategory, date, setDate, expenseList, setExpenseList}){
 
     //Functions
 
@@ -44,7 +49,7 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
             ])
             setExpenseName("");
             setAmount("");
-            setCategory("Bills");
+            setCategory("");
             setDate("");
         }
 

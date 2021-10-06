@@ -1,5 +1,11 @@
 import React from 'react';
+
+//Import of created components
+
 import Table from './Table';
+
+//Import bootrap
+
 import TableBootstrap from 'react-bootstrap/Table'
 import 'bootstrap/dist/css/bootstrap.min.css'
 

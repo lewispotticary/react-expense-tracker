@@ -122,7 +122,6 @@ function App() {
       const categoryFilterHandler = () => {
         switch(categoryFilter){
           case "Bills":
-            console.log("bills");
             setFilteredExpenses(expenseList.filter(expense => expense.categoryValue === "Bills"));
             break;
           case "Entertainment":

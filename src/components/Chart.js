@@ -1,6 +1,14 @@
 import React from 'react'
+
+//Import bootrap
+
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+//Import react chart
+
 import {Pie} from 'react-chartjs-2'
+
+//Chart component renders out pie chart, each category value use state is inserted into pie chart under data
 
 const Chart = ({billTotal, entertainmentTotal, foodTotal, travelTotal, miscellaneousTotal}) => {
     return (

@@ -1,8 +1,12 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button'
+
+//Bootrap import
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList, expenseList, setFilteredExpenses}) {
+//Filter function renders the filter section of the expense tracker, sets user inputs into state. 
+
+function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, setDateSort, setExpenseList}) {
 
     //Functions
 
@@ -49,12 +53,14 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
 
                     <div class="row">
 
+                        {/*Name to filter Container*/}
+
                         <div class="col">
-                                <div className="nameFilter">
-                                    <h5>Name</h5>
-                                    <input class="form-control" type="text" onChange={nameFilterSet}/>
-                                </div>
+                            <h5>Name</h5>
+                            <input class="form-control" type="text" onChange={nameFilterSet}/>
                         </div>
+
+                        {/*Category to filter Container*/}
 
                         <div class="col">
                             <h5>Category</h5>
@@ -68,6 +74,8 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
                             </select>
                         </div>
 
+                        {/*Date sort Container*/}
+
                         <div class="col">
                             <h5>Date Sort</h5>
                             <select class="form-select" id="cars" name="cars" value={dateSort} onChange={dateSortHandler}>
@@ -76,6 +84,8 @@ function Filter ({categoryFilter, setCategoryFilter, setNameFilter, dateSort, se
                                 <option value="Old">Date (Oldest)</option>
                             </select>
                         </div>
+
+                        {/*Reset and clear button Container*/}
 
                         <div class="col">
                             <h5>&nbsp;</h5>
