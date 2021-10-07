@@ -56,61 +56,67 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
     //Main   
 
         return(
-            <div class="container">
+            <div>
 
-                <div class="d-flex flex-row justify-content-center mb-3 mt-3">
-                    <h1>Expense Tracker</h1>
-                </div> 
+                <div class="container-fluid p-3 mb-2 bg-dark text-white mb-4">
+                    <div class="d-flex flex-row justify-content-center mb-1 mt-1">
+                        <h1>Expense Tracker</h1>
+                    </div> 
+                </div>
 
-                <div class="d-flex flex-row justify-content-start mb-4">
-                    
-                    <div class="row">
 
-                        {/*Expense Name Container*/}
+                <div class="container">
 
-                        <div class="col">
-                            <h4>Expense</h4>
-                            <input class="form-control" type="text" value={expenseName} onChange={expenseNameHandler}/>
-                        </div>
-
-                        {/*Amount Container*/}
-
-                        <div class="col">
-                            <h4>Amount</h4>
-                            <input class="form-control" type="text" value={amount} onChange={amountHandler}/>
-                        </div>
-
-                        {/*Category Container*/}
-
-                        <div class="col">
-                            <h4>Category</h4>
-                            <select class="form-select" id="cars" name="cars" value={category} onChange={categoryHandler}>
-                                <option value="Bills">Bills</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Food">Food</option>
-                                <option value="Travel">Travel</option>
-                                <option value="Miscellaneous">Miscellaneous</option>
-                            </select>
-                        </div>
-
-                        {/*Date Container*/}
+                    <div class="d-flex flex-row justify-content-start mb-4">
                         
-                        <div class="col">
-                            <h4>Date</h4>
-                            <input class="form-control" type="date" value={date} onChange={dateHandler} />
+                        <div class="row">
+
+                            {/*Expense Name Container*/}
+
+                            <div class="col">
+                                <h4>Expense</h4>
+                                <input class="form-control" type="text" value={expenseName} onChange={expenseNameHandler}/>
+                            </div>
+
+                            {/*Amount Container*/}
+
+                            <div class="col">
+                                <h4>Amount</h4>
+                                <input class="form-control" type="text" value={amount} onChange={amountHandler}/>
+                            </div>
+
+                            {/*Category Container*/}
+
+                            <div class="col">
+                                <h4>Category</h4>
+                                <select class="form-select" id="cars" name="cars" value={category} onChange={categoryHandler}>
+                                    <option value="Bills">Bills</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Travel">Travel</option>
+                                    <option value="Miscellaneous">Miscellaneous</option>
+                                </select>
+                            </div>
+
+                            {/*Date Container*/}
+                            
+                            <div class="col">
+                                <h4>Date</h4>
+                                <input class="form-control" type="date" value={date} onChange={dateHandler} />
+                            </div>
+
+                            <div class="col">
+                                <h4>&nbsp;</h4>
+                                <Button onClick={submitExpenseHandler}>Add Expense</Button>
+                            </div>
+
                         </div>
 
-                        <div class="col">
-                            <h4>&nbsp;</h4>
-                            <Button onClick={submitExpenseHandler}>Add Expense</Button>
-                        </div>
+                        <hr></hr>
 
                     </div>
 
-                    <hr></hr>
-
                 </div>
-
             </div>
         );
 }
