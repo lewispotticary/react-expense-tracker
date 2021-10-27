@@ -5,7 +5,7 @@ Expense tracker web application. Built using React.JS, Bootstrap and Chart.JS. A
 # Screenshot:
 
 <p align="center">
-  <img src="Screenshot/Expense-Tracker-Screenshot.JPG" />
+  <img src="Screenshot/React-Expense-Tracker-Screenshot.JPG" />
 </p>
 
 #
