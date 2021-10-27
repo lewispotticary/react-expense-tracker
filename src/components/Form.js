@@ -48,8 +48,7 @@ function Form ({expenseName, setExpenseName, amount, setAmount, category, setCat
                     id: Math.random() * 1000}
             ])
             setExpenseName("");
-            setAmount("");
-            setCategory("");
+            setAmount("");   
             setDate("");
         }
 
